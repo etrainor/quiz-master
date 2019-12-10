@@ -7,6 +7,7 @@
   <link rel='icon' href='./assets/question.png' type='image/x-icon'/ >
   <link rel="stylesheet" href="./styles/reset.css">
   <link rel="stylesheet" href="./styles/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Raleway&display=swap" rel="stylesheet">
   <title>Quiz Master</title>
 </head>
 <body>
@@ -15,31 +16,23 @@
     <!-- <h2>Because things are more fun when you can study by playing a game</h2> -->
   </header>
   <main>
-    <form>
-      <input name = 'name' placeholder = 'What is Your Name?'>
-      <select>
-        <option default>Select a Class</option>
-        <option>201</option>
-        <option>301</option>
+    <form id="quiz-choice">
+      <input name = 'name' placeholder = 'What is Your Name?' required>
+      <select id="course-list" name ="course" required>
       </select>
-      <select>
-        <option default>Choose a Quiz</option>
-        <option>Quiz #1</option>
-        <option>Quiz #2</option>
-        <option>Quiz #3</option>
-        <option>Quiz #4</option>
-        <option>Quiz #5</option>
-        <option>Quiz #6</option>
-        <option>All the Quizzes</option>
+      <select id="quiz-options" name = "quiz"required>
       </select>
       <button>Quiz Me!</button>
     </form>
+    <section id="results"></section>
+    <section id="quiz"></section>
   </main>
-  <footer>
+  <!-- <footer>
     <a href="#">About</a>
     <p>Copyright Me 2019</p>
-    <a href="#">High Scores</a>
-  </footer>
+    <a href="#">Statistics</a>
+  </footer> -->
+  <script src="./data/quizzes.js"></script>
   <script src="./js/app.js"></script>
 </body>
 </html>
