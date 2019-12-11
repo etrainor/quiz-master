@@ -26,7 +26,7 @@ function Quiz (course, quiz, questionArray) {
   this.quiz = quiz;
   this.score = 0;
   this.numQuestions = questionArray.length;
-  this.percentCorrect = this.score/this.numQuestions * 100 + '%';
+  this.percentCorrect = Math.round(this.score/this.numQuestions * 100) + '%';
   console.log((this.score/this.numQuestions) *100)
 
   quizHistory.push(this);
@@ -133,7 +133,7 @@ function handleSubmit(event) {
   } else {
     checkAnswer(selectedAnswers, event.target)
     var h2El = document.createElement('h2');
-    h2El.textContent = `Quiz Complete! You scored ${totalScore/selectedQuiz.length * 100}%`
+    h2El.textContent = `Quiz Complete! You scored ${Math.round(totalScore/selectedQuiz.length * 100)}%`
     resultsBox.appendChild(h2El);
     var showResults = document.createElement('button');
     showResults.setAttribute('id', 'results-button');
