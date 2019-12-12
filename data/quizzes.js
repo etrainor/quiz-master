@@ -95,7 +95,61 @@ var quizData = {
         "possibleAnswers":["(1) git checkout -b hotfix","(1) git checkout master -b hotfix","(1) git checkout -b hotfix master","(2) git add app.js","(2) git add .","(3) git commit -m \"hotfix of app.js\"", "(3) git commit -m 'hotfix of app.js'","(4) git push origin hotfix","(4) git push origin HEAD","(4) git push -u origin hotfix","(4) git push -u origin HEAD"],
         "correctAnswers":["0", "3","5","7"]
       }],
-    "quiz-3":[],
+    "quiz-3":[
+      {
+        "question":"In JavaScript, the "=" operator is used for what purpose?",
+        "possibleAnswers":["To check for equality","To assign a value to a variable","There is no purpose","It varies, and depends upon the context"],
+        "correctAnswers":["1"]
+      },
+      {
+        "question":"What is the purpose of z-index in CSS positioning?",
+        "possibleAnswers":["In a layout with overlapping elements, determines which element sits on top","Limits the overall width of an element","Allows an element to shrink and grow in relation to the size of the browser window","Determines the number of pixels that a user may drag a pixel to reposition it"],
+        "correctAnswers":["0"]
+      },
+      {
+        "question":"In our guessing game we used a conditional (if/else statement) to check for what?",
+        "possibleAnswers":["If the program had finished executing all statements.","If the user's browser was Chrome, Safari, or Firefox","If the guessed answer was equivalent to the stored answer.","To check if our code was correct."],
+        "correctAnswers":["2"]
+      },
+      {
+        "question":"What type of CSS positioning is a subset of absolute positioning and positions an element in relation to the browser window?",
+        "possibleAnswers":["Fixed positioning","Float positioning","Browser positioning","Navigation positioning"],
+        "correctAnswers":["0"]
+      },
+      {
+        "question":"Check out the JavaScript code below:",
+        "codeSnippet":["var units = \"years\";","var davidAge = 65;","var johnAge = 40;","var ageDifference = davidAge - johnAge;","alert(\"The age difference is \" + ageDifference + \" \" + units);"],
+        "possibleAnswers":["Who cares, it will work anyways if the alert message reads 'alert(\"The age difference is \" + davidAge - johnAge + \" \" + units);'","We should always make as many variables as possible because variables occupy no memory in JavaScript.","The code is more readable with an appropriately named variable, rather than including an arithmetic expression inside of parentheses inside of a concatenation."],
+        "correctAnswers":["2"]
+      },
+      {
+        "question":"In JavaScript, what is the difference between the "==" and "===" operators?",
+        "possibleAnswers":["There is no difference, it is simply a preference.",""===" means equality without type coersion, meaing the two values being compared must be of the same data type (and value) to return true.", ""===" does not exist in JavaScript, its a trick question!"],
+        "correctAnswers":["1"]
+      },
+      {
+        "question":"What type of CSS positioning takes an element out of normal flow and positions it in relation to its containing element?",
+        "possibleAnswers":["Absolute positioning","Fixed positioning","Z-index positioning","Normal positioning"],
+        "correctAnswers":["0"]
+      },
+      {
+        "question":"What will be the result of the following JavaScript code:",
+        "codeSnippet":["var meows = true;","while (meows = true) {","  console.log('MEOW!');","  meow = false;","}","console.log('Sorry, no meowing allowed.');"],
+        "possibleAnswers":["The code will cause an infinite loop and the console will log many many meows.","'MEOW' will log to the console only once.","'Sorry, no meowing allowed' will log to the console","Nothing will appear in the console"],
+        "correctAnswers":["0"]
+      },
+      {
+        "question":"What will be the result of the following JavaScript code?",
+        "codeSnippet":["var breakfast = ['banana',","                'chicken wing',","                'coffee',","                'eye of newt',","                'pancakes',","                'avocado',","                'fish biscuit',","                'pecan',","                'corn dog'];","var indexOne = 3;","var indexTwo = 4;","var indexThree = 6;","for (var i = indexOne; i < indexThree; i++) {","  console.log(breakfast[i]);","}"],
+        "possibleAnswers":["The following items will log into the console: chicken wings, coffee, eye of newt","The following items will log into the console: banana, chicken wing, coffee","Nothing will log into the console because of a syntax error","The following items will log into the console: eye of newt, pancakes, avocado"],
+        "correctAnswers":["3"]
+      },
+      {
+        "question":"What does the CSS property 'float' do?",
+        "possibleAnswers":["Allows you to take an element in normal flow and place it as for to the left or the right of the containing element as possible","Allows an element to appear to 'float' on the display, with other elements passing underneath it when the page is scrolled","Moves an element to sit on the top of its container, as if it were floating on water","The positioning of the element varies depending upon its relation to other elements whose 'float' property is set to 'true'"],
+        "correctAnswers":["0"]
+      }
+    ],
     "quiz-4":[],
     "quiz-5":[],
     "quiz-6":[]
