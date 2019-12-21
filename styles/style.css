@@ -1,9 +1,13 @@
 /* font-family: 'Luckiest Guy', cursive;
 font-family: 'Raleway', sans-serif; */
-body {
-  /* background: rgb(250,225,69);
-background: radial-gradient(circle, rgba(250,225,69,1) 0%, rgba(213,189,39,1) 42%, rgba(133,118,25,1) 100%); */
+/* font-family: 'Roboto', sans-serif; */
 
+* {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+}
+
+body {
   background-image: url('../assets/alex-holyoake-qX9Ie7ieb1E-unsplash.jpg');
   background-attachment: fixed;
   background-size: cover;
@@ -69,4 +73,139 @@ main {
 #quiz-choice > #quiz-options {
   margin-top: 0;
 }
+
+#quiz > form {
+  background-color: rgb(26,51,56,.8);
+  padding: 2rem;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+pre {
+  margin:1rem;
+  padding: 3rem;
+  width: 80%;
+  margin: auto;
+  background-color: rgb(0,139,139, .8);
+  font-family: 'Anonymous Pro', monospace;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  /* white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap; */
+  word-wrap: break-word;
+}
+
+pre > code > p {
+  margin-bottom: .5rem;
+}
+
+pre > code > p:last-of-type {
+  margin-bottom: 0;
+}
+
+h2, .answer-container {
+  padding: 1rem;
+  width: 90%;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 2rem;
+}
+
+.single-answer {
+  padding: 1rem;
+}
+
+.single-answer > input {
+  margin-right: 2rem;
+}
+
+#quiz > form > button, #results > button {
+  display: flex;
+  justify-self: center;
+  margin: auto;
+  background-color: #b12c55;
+  padding: 1.4rem 1rem 1rem 1rem;
+  border: none;
+  font-family: 'Luckiest Guy', cursive;
+  color: white;
+  font-size: 2rem;
+}
+
+#wrong, #correct, #partial {
+  text-align: center;
+  color: white;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 2rem;
+}
+
+#wrong {
+  text-shadow: 1px 2px 9px red, 0 0 0.2em red;
+}
+
+#correct {
+  text-shadow: 1px 2px 9px green, 0 0 0.2em green;
+}
+
+#partial {
+  text-shadow: 1px 2px 9px #EEAb07, 0 0 0.2em #EEAb07;
+}
+
+.question {
+  margin-bottom: 2rem;
+  /* border-bottom: white solid 2rem; */
+}
+
+#results > h2 {
+  text-align: center;
+  color: white;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 3rem;
+}
+
+#results {
+  background-color: rgb(26,51,56,.8);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: none;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+header > section {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+header > section > h2 {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'Anonymous Pro', monospace;
+  text-shadow: 1px 2px 9px darkslategray, 0 0 0.2em darkslategray;
+  color: white;
+  
+}
+
+header > h1 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
 
