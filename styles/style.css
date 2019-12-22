@@ -124,7 +124,7 @@ h2 {
   margin-right: 2rem;
 }
 
-#quiz > form > button, #results > button {
+#quiz > form > button, #results > #button-container > button {
   display: flex;
   justify-self: center;
   margin: auto;
@@ -208,4 +208,13 @@ a:visited {
   color: white;
 }
 
+button {
+  outline: none;
+}
+
+#button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 

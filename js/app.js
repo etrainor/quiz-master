@@ -22,11 +22,11 @@ function getRandomQuestion(max) {
 
 function Quiz (course, quiz, questionArray) {
   this.class = course;
-  this.dateTaken = 'Not Taken';
+  this.dateTaken = 'Not ';
   this.quiz = quiz;
   this.score = 0;
   this.numQuestions = questionArray.length;
-  this.percentCorrect = Math.round(this.score/this.numQuestions * 100) + '%';
+  this.percentCorrect = '0%';
   quizHistory.push(this);
 }
 
@@ -42,8 +42,8 @@ function formatData(data) {
     })
   })
 }
-
 formatData(quizData);
+console.log(quizHistory);
 
 //populate an array with all questions in the order they will be asked. Preventing duplicates.
 function questionOrder(quiz) {
@@ -147,11 +147,52 @@ function handleSubmit(event) {
     var h2El = document.createElement('h2');
     h2El.textContent = `Quiz Complete! You scored ${Math.round(totalScore/selectedQuiz.length * 100)}%`
     resultsBox.appendChild(h2El);
+
+    //store the score for the quiz and put it into local storage
+    //TODO: Turn into separate function
+    for (var j = 0 ; j < quizHistory.length ; j++ ){
+      if (quizHistory[j].class === course && quizHistory[j].quiz === quiz){
+        console.log('current quiz: ', course, quizHistory[j].quiz);
+        if(quizHistory[j].score < totalScore){
+          quizHistory[j].score = totalScore;
+          quizHistory[j].percentCorrect = `${Math.round(totalScore/(quizHistory[j].numQuestions) *100)}%`
+        }
+        quizHistory[j].dateTaken = Date.now();
+      }
+    }
+
+    var dataString = JSON.stringify(quizHistory);
+    localStorage.setItem(`${name}`, dataString);
+
+
+    //create a show results button
     var showResults = document.createElement('button');
     showResults.setAttribute('id', 'results-button');
     showResults.addEventListener('click', showQuestions);
     showResults.textContent = 'View Detailed Results';
-    resultsBox.appendChild(showResults);
+
+    //create a play again button
+    var playAgain = document.createElement('button');
+    playAgain.setAttribute('id', 'play-again-button');
+    // playAgain.addEventListener('click', showQuestions);
+    playAgain.textContent = 'Play Again';
+
+    //create a view score history button
+    var scoreHistory = document.createElement('button');
+    scoreHistory.setAttribute('id', 'score-history-button');
+    //scoreHistory.addEventListener('click', historyRedirect);
+    scoreHistory.textContent = 'See Score History';
+    //append the buttons to the page
+
+    //make a container to hold the buttons
+    var buttonContainer = document.createElement('section');
+    buttonContainer.setAttribute('id', 'button-container');
+    
+    buttonContainer.appendChild(showResults);
+    buttonContainer.appendChild(playAgain);
+    buttonContainer.appendChild(scoreHistory);
+    resultsBox.appendChild(buttonContainer);
+
     resultsBox.style.display = 'block';
   }
 }
@@ -214,13 +255,19 @@ function handleUserInput(event) {
   // console.log('quiz requested')
   var data = event.target;
   name = titleCase((data.name.value).toLowerCase());
+
+  //if the user has taken the quiz before get the historical data from local storage
+  if(localStorage.getItem(name)){
+    quizHistory = JSON.parse(localStorage.getItem(name));
+    console.log(quizHistory);
+  }
   course = data.course.value;
   var selectedIndex =data.quiz.options.selectedIndex
   quiz = data.quiz.options[selectedIndex].id;
 
   selectedQuiz = quizData[course][quiz];
   quizQuestionOrder = questionOrder(selectedQuiz);
-  // console.log(quizQuestionOrder);
+  console.log(quiz);
   populateQuizQuestion(selectedQuiz);
   userInput.style.display = 'none';
 }

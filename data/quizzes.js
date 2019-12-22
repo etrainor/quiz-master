@@ -156,48 +156,48 @@ var quizData = {
         "possibleAnswers":["It truncates the decimal values from a floating point number","It generates decimal numbers of the number digits that are passed in as an argument","It takes a decimal and invokes it up to the next higher integer value","It picks a random number and attaches it to the prototype"],
         "correctAnswers":["0"]
       },
-      {
-        "question":"When used inside of an object, this refers to:",
-        "possibleAnswers":["The object that it is used in","The function concatenation that it is used inside of","The block of code following 'this'","Any variable that is declared either immediately before or immediately after the use of 'this'"],
-        "correctAnswers":["0"]
-      },
-      {
-        "question":"This line of code creates an object by using:",
-        "codeSnippet":["var rabbit = {};"],
-        "possibleAnswers":["Cascading prototypal inheritance","Properties and methods","Object literal notation","A constructor function"],
-        "correctAnswers":["2"]
-      },
-      {
-        "question":"In the following line of code \"Michelangelo\" and 1 are:",
-        "codeSnippet":["var turtle = newAnimal(\"Michelangelo\",1);"],
-        "possibleAnswers":["Function expressions","Instantiations ","Variables","Arguments"],
-        "correctAnswers":["3"]
-      },
-      {
-        "question":"What is the term we use for a function that is associated with (or, attached to) an object?",
-        "possibleAnswers":["An action","A method","An ability","An instance"],
-        "correctAnswers":["1"]
-      },
-      {
-        "question":"True\/False: An object is a collection of properties and methods.",
-        "possibleAnswers":["True","False"],
-        "correctAnswers":["0"]
-      },
-      {
-        "question":"True\/False: Figuring out your problem domain should only be done after you start writing code; otherwise you do not know whether the code actually works.",
-        "possibleAnswers":["True","False"],
-        "correctAnswers":["1"]
-      },
-      {
-        "question":"What does DOM stand for?",
-        "possibleAnswers":["Domain Oriented Manipulation","Direct Object-oriented Maintenance", "Document Object Model","Distribution of Methods"],
-        "correctAnswers":["2"]
-      },
-      {
-        "question":"True/False: Javascript cannot be used to manipulate HTML elements; it is only used in web applications to solve arithmetic calculations.",
-        "possibleAnswers":["True","False"],
-        "correctAnswers":["1"]
-      },
+      // {
+      //   "question":"When used inside of an object, this refers to:",
+      //   "possibleAnswers":["The object that it is used in","The function concatenation that it is used inside of","The block of code following 'this'","Any variable that is declared either immediately before or immediately after the use of 'this'"],
+      //   "correctAnswers":["0"]
+      // },
+      // {
+      //   "question":"This line of code creates an object by using:",
+      //   "codeSnippet":["var rabbit = {};"],
+      //   "possibleAnswers":["Cascading prototypal inheritance","Properties and methods","Object literal notation","A constructor function"],
+      //   "correctAnswers":["2"]
+      // },
+      // {
+      //   "question":"In the following line of code \"Michelangelo\" and 1 are:",
+      //   "codeSnippet":["var turtle = newAnimal(\"Michelangelo\",1);"],
+      //   "possibleAnswers":["Function expressions","Instantiations ","Variables","Arguments"],
+      //   "correctAnswers":["3"]
+      // },
+      // {
+      //   "question":"What is the term we use for a function that is associated with (or, attached to) an object?",
+      //   "possibleAnswers":["An action","A method","An ability","An instance"],
+      //   "correctAnswers":["1"]
+      // },
+      // {
+      //   "question":"True\/False: An object is a collection of properties and methods.",
+      //   "possibleAnswers":["True","False"],
+      //   "correctAnswers":["0"]
+      // },
+      // {
+      //   "question":"True\/False: Figuring out your problem domain should only be done after you start writing code; otherwise you do not know whether the code actually works.",
+      //   "possibleAnswers":["True","False"],
+      //   "correctAnswers":["1"]
+      // },
+      // {
+      //   "question":"What does DOM stand for?",
+      //   "possibleAnswers":["Domain Oriented Manipulation","Direct Object-oriented Maintenance", "Document Object Model","Distribution of Methods"],
+      //   "correctAnswers":["2"]
+      // },
+      // {
+      //   "question":"True/False: Javascript cannot be used to manipulate HTML elements; it is only used in web applications to solve arithmetic calculations.",
+      //   "possibleAnswers":["True","False"],
+      //   "correctAnswers":["1"]
+      // },
       {
         "question":"Invoke the wizardsOfMiddleEarth function.",
         "codeSnippet":["function wizardsOfMiddleEarth() {","  this.gray = \"Gandalf\";","  this.white = \"Saurumon\";","  this.brown = \"Radaghast\";","  this.blue = [\"Alatar\", \"Pallando\"];","  return this.gray + this.white + this.brown + this.blue[0] + this.blue[1];","}"],
