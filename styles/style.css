@@ -1,0 +1,263 @@
+/* font-family: 'Luckiest Guy', cursive;
+font-family: 'Raleway', sans-serif; */
+/* font-family: 'Roboto', sans-serif; */
+
+* {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+}
+
+body {
+  background-image: url('../assets/alex-holyoake-qX9Ie7ieb1E-unsplash.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+header {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  font-family: 'Luckiest Guy', cursive;
+  color: white;
+  text-shadow: 1px 2px 9px darkslategray, 0 0 0.2em darkslategray;
+  font-size: 8rem;
+  margin: 4rem 0 2rem 0;
+
+}
+
+main {
+  width: 70vw;
+  margin: auto;
+}
+
+#quiz-choice {
+  padding: 4rem;
+  background-color: rgb(26,51,56,.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#quiz-choice > input, #quiz-choice > select {
+  width: 50%;
+  padding: .5rem;
+  font-size: 1rem;
+  color: black;
+  text-align: center;
+  outline: none;
+}
+
+
+#quiz-choice > select {
+  padding: 1rem;
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+#quiz-choice > button {
+  background-color: #b12c55;
+  color: white;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 1.5rem;
+  width: 30%;
+  padding: 1rem 2rem .5rem 2rem;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+}
+
+#quiz-choice > #quiz-options {
+  margin-top: 0;
+}
+
+#quiz > form {
+  background-color: rgb(26,51,56,.8);
+  padding: 2rem;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+pre {
+  margin:1rem;
+  padding: 3rem;
+  width: 80%;
+  margin: auto;
+  background-color: rgb(0,139,139, .8);
+  font-family: 'Anonymous Pro', monospace;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  /* white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap; */
+  word-wrap: break-word;
+}
+
+pre > code > p {
+  margin-bottom: .5rem;
+}
+
+pre > code > p:last-of-type {
+  margin-bottom: 0;
+}
+
+h2, .answer-container {
+  padding: 1rem;
+  width: 90%;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 2rem;
+}
+
+.single-answer {
+  padding: 1rem;
+}
+
+.single-answer > input {
+  margin-right: 2rem;
+}
+
+#quiz > form > button, #results > #button-container > button {
+  display: flex;
+  justify-self: center;
+  margin: auto;
+  background-color: #b12c55;
+  padding: 1.4rem 1rem 1rem 1rem;
+  border: none;
+  font-family: 'Luckiest Guy', cursive;
+  color: white;
+  font-size: 2rem;
+}
+
+#wrong, #correct, #partial {
+  text-align: center;
+  color: white;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 2rem;
+}
+
+#wrong {
+  text-shadow: 1px 2px 9px red, 0 0 0.2em red;
+}
+
+#correct {
+  text-shadow: 1px 2px 9px green, 0 0 0.2em green;
+}
+
+#partial {
+  text-shadow: 1px 2px 9px #EEAb07, 0 0 0.2em #EEAb07;
+}
+
+.question {
+  margin-bottom: 2rem;
+  /* border-bottom: white solid 2rem; */
+}
+
+#results > h2 {
+  text-align: center;
+  color: white;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 3rem;
+}
+
+#results {
+  background-color: rgb(26,51,56,.8);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: none;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+header > section {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+header > section > h2 {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'Anonymous Pro', monospace;
+  text-shadow: 1px 2px 9px darkslategray, 0 0 0.2em darkslategray;
+  color: white;
+  
+}
+
+header > h1 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+button {
+  outline: none;
+}
+
+#button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+h2 {
+  color: white;
+}
+
+#table-section {
+  background-color: rgb(26,51,56,.8);
+  padding: 2rem;
+}
+
+#table-title, td {
+  padding: 0;
+  color: white;
+  font-family: 'Anonymous Pro', monospace;
+}
+
+table {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: space-evenly;
+  flex-direction: column;
+
+}
+
+tr {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+td {
+  text-align: flex-start;
+}
+
+#no-attempts {
+  font-family: 'Anonymous Pro', monospace;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#question-number {
+  text-align: end;
+  padding-top: 1.5rem;
+}
