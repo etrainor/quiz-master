@@ -123,8 +123,8 @@ var quizData = {
         "correctAnswers":["2"]
       },
       {
-        "question":"In JavaScript, what is the difference between the "==" and "===" operators?",
-        "possibleAnswers":["There is no difference, it is simply a preference.",""===" means equality without type coersion, meaing the two values being compared must be of the same data type (and value) to return true.", ""===" does not exist in JavaScript, its a trick question!"],
+        "question":"In JavaScript, what is the difference between the \"==\" and \"===\" operators?",
+        "possibleAnswers":["There is no difference, it is simply a preference.","\"===\" means equality without type coercion, meaning the two values being compared must be of the same data type (and value) to return true.", "\"===\" does not exist in JavaScript, its a trick question!"],
         "correctAnswers":["1"]
       },
       {
@@ -156,48 +156,48 @@ var quizData = {
         "possibleAnswers":["It truncates the decimal values from a floating point number","It generates decimal numbers of the number digits that are passed in as an argument","It takes a decimal and invokes it up to the next higher integer value","It picks a random number and attaches it to the prototype"],
         "correctAnswers":["0"]
       },
-      // {
-      //   "question":"When used inside of an object, this refers to:",
-      //   "possibleAnswers":["The object that it is used in","The function concatenation that it is used inside of","The block of code following 'this'","Any variable that is declared either immediately before or immediately after the use of 'this'"],
-      //   "correctAnswers":["0"]
-      // },
-      // {
-      //   "question":"This line of code creates an object by using:",
-      //   "codeSnippet":["var rabbit = {};"],
-      //   "possibleAnswers":["Cascading prototypal inheritance","Properties and methods","Object literal notation","A constructor function"],
-      //   "correctAnswers":["2"]
-      // },
-      // {
-      //   "question":"In the following line of code \"Michelangelo\" and 1 are:",
-      //   "codeSnippet":["var turtle = newAnimal(\"Michelangelo\",1);"],
-      //   "possibleAnswers":["Function expressions","Instantiations ","Variables","Arguments"],
-      //   "correctAnswers":["3"]
-      // },
-      // {
-      //   "question":"What is the term we use for a function that is associated with (or, attached to) an object?",
-      //   "possibleAnswers":["An action","A method","An ability","An instance"],
-      //   "correctAnswers":["1"]
-      // },
-      // {
-      //   "question":"True\/False: An object is a collection of properties and methods.",
-      //   "possibleAnswers":["True","False"],
-      //   "correctAnswers":["0"]
-      // },
-      // {
-      //   "question":"True\/False: Figuring out your problem domain should only be done after you start writing code; otherwise you do not know whether the code actually works.",
-      //   "possibleAnswers":["True","False"],
-      //   "correctAnswers":["1"]
-      // },
-      // {
-      //   "question":"What does DOM stand for?",
-      //   "possibleAnswers":["Domain Oriented Manipulation","Direct Object-oriented Maintenance", "Document Object Model","Distribution of Methods"],
-      //   "correctAnswers":["2"]
-      // },
-      // {
-      //   "question":"True/False: Javascript cannot be used to manipulate HTML elements; it is only used in web applications to solve arithmetic calculations.",
-      //   "possibleAnswers":["True","False"],
-      //   "correctAnswers":["1"]
-      // },
+      {
+        "question":"When used inside of an object, this refers to:",
+        "possibleAnswers":["The object that it is used in","The function concatenation that it is used inside of","The block of code following 'this'","Any variable that is declared either immediately before or immediately after the use of 'this'"],
+        "correctAnswers":["0"]
+      },
+      {
+        "question":"This line of code creates an object by using:",
+        "codeSnippet":["var rabbit = {};"],
+        "possibleAnswers":["Cascading prototypal inheritance","Properties and methods","Object literal notation","A constructor function"],
+        "correctAnswers":["2"]
+      },
+      {
+        "question":"In the following line of code \"Michelangelo\" and 1 are:",
+        "codeSnippet":["var turtle = newAnimal(\"Michelangelo\",1);"],
+        "possibleAnswers":["Function expressions","Instantiations ","Variables","Arguments"],
+        "correctAnswers":["3"]
+      },
+      {
+        "question":"What is the term we use for a function that is associated with (or, attached to) an object?",
+        "possibleAnswers":["An action","A method","An ability","An instance"],
+        "correctAnswers":["1"]
+      },
+      {
+        "question":"True\/False: An object is a collection of properties and methods.",
+        "possibleAnswers":["True","False"],
+        "correctAnswers":["0"]
+      },
+      {
+        "question":"True\/False: Figuring out your problem domain should only be done after you start writing code; otherwise you do not know whether the code actually works.",
+        "possibleAnswers":["True","False"],
+        "correctAnswers":["1"]
+      },
+      {
+        "question":"What does DOM stand for?",
+        "possibleAnswers":["Domain Oriented Manipulation","Direct Object-oriented Maintenance", "Document Object Model","Distribution of Methods"],
+        "correctAnswers":["2"]
+      },
+      {
+        "question":"True/False: Javascript cannot be used to manipulate HTML elements; it is only used in web applications to solve arithmetic calculations.",
+        "possibleAnswers":["True","False"],
+        "correctAnswers":["1"]
+      },
       {
         "question":"Invoke the wizardsOfMiddleEarth function.",
         "codeSnippet":["function wizardsOfMiddleEarth() {","  this.gray = \"Gandalf\";","  this.white = \"Saurumon\";","  this.brown = \"Radaghast\";","  this.blue = [\"Alatar\", \"Pallando\"];","  return this.gray + this.white + this.brown + this.blue[0] + this.blue[1];","}"],
@@ -205,9 +205,9 @@ var quizData = {
         "notes":["This will technically work but it really bad practice because you are leaving out an ending semicolon.","This will technically work but it really bad practice because you are leaving out an ending semicolon, plus, it is stylistically poor to put a space between the function name and the parentheses.","This works, but it is stylistically poor to put a space between the function name and the parentheses.","All answers will technically work but this is answer uses best practice and syntax"],
         "correctAnswers":["0","1","2","3"]
       }
-    ],
-    "quiz-5":[],
-    "quiz-6":[]
+    ]
+    // "quiz-5":[],
+    // "quiz-6":[]
   },
   "301": {
     "quiz-1":[],

@@ -2,6 +2,9 @@
 
 //global variables
 var selectedQuiz;
+var all201QuizQuestions = [];
+var all301QuizQuestions = [];
+var allQuizQuestions = [];
 var quizBox = document.getElementById('quiz');
 var resultsBox = document.getElementById('results');
 var currentQuestion = 0;
@@ -22,7 +25,7 @@ function getRandomQuestion(max) {
 
 function Quiz (course, quiz, questionArray) {
   this.class = course;
-  this.dateTaken = 'Not ';
+  this.dateTaken = 'Not Attempted';
   this.quiz = quiz;
   this.score = 0;
   this.numQuestions = questionArray.length;
@@ -32,18 +35,38 @@ function Quiz (course, quiz, questionArray) {
 
 //instantiate array of results
 function formatData(data) {
-  // console.log('populate the select boxes')
   var allCourses = Object.keys(data);
   allCourses.forEach(course => {
     var allQuizzes = Object.keys(data[course]);
     allQuizzes.forEach(quiz => {
       var quizArray = data[course][quiz];
+      if(course === '201'){
+        for(var i = 0 ; i < quizArray.length ; i++){
+          quizData['Quiz-Master'] = {};
+          all201QuizQuestions.push(quizArray[i]);
+          allQuizQuestions.push(quizArray[i]);
+          quizData['Quiz-Master']['201-Quiz-Master'] = all201QuizQuestions;
+        }
+      } else if (course === '301'){
+        for(var i = 0 ; i < quizArray.length ; i++){
+          all301QuizQuestions.push(quizArray[i]);
+          allQuizQuestions.push(quizArray[i]);
+          quizData['Quiz-Master']['301-Quiz-Master'] = all301QuizQuestions;
+        }
+      }
+      quizData['Quiz-Master']['All-Time-Quiz-Master'] = allQuizQuestions;
       new Quiz(course, quiz, quizArray);
     })
   })
+  new Quiz('Quiz-Master', '201-Quiz-Master', all201QuizQuestions);
+  new Quiz('Quiz-Master','301-Quiz-Master', all301QuizQuestions);
+  new Quiz('Quiz-Master', 'All-Time-Quiz-Master', allQuizQuestions);
 }
+
+// function quizMaster(){
+
+// }
 formatData(quizData);
-console.log(quizHistory);
 
 //populate an array with all questions in the order they will be asked. Preventing duplicates.
 function questionOrder(quiz) {
@@ -60,13 +83,13 @@ function questionOrder(quiz) {
 }
 
 function populateQuizQuestion(quiz) {
-  // console.log('get a question')
   var formEl = document.createElement('form');
   formEl.setAttribute('id',`question-${currentQuestion+1}`)
   formEl.setAttribute('class','question')
   quizBox.appendChild(formEl);
   var visibleQuestion = quiz[quizQuestionOrder[currentQuestion]];
-  // console.log('visible question', visibleQuestion);
+  
+  
   var question = document.createElement('h2');
   question.textContent = visibleQuestion.question;
   formEl.appendChild(question);
@@ -125,14 +148,18 @@ function populateQuizQuestion(quiz) {
   formEl.appendChild(button);
 
   formEl.addEventListener('submit', handleSubmit);
+
+  //Display the current question number and the number of total questions in the quiz
+  var pTag = document.createElement('p');
+  pTag.setAttribute('class', 'question-number');
+  pTag.textContent = `Question ${currentQuestion+1} of ${quizQuestionOrder.length}`;
+  formEl.appendChild(pTag);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-  // console.log('question submitted')
   var selectedAnswers = [];
   var selected = document.getElementsByName(`${quizQuestionOrder[currentQuestion]}`)
-  // console.log(quizQuestionOrder[currentQuestion]);
   for (var i = 0 ; i < selected.length ; i++) {
     if (selected[i].checked){
       selectedAnswers.push(selected[i].id);
@@ -150,9 +177,11 @@ function handleSubmit(event) {
 
     //store the score for the quiz and put it into local storage
     //TODO: Turn into separate function
+    //TODO: decrement score if answered more than possible right answers for checkboxes
+    //TODO: make it required to choose at least one option
+    var currentQuizTaker = localStorage.setItem('currentQuizTaker', name);
     for (var j = 0 ; j < quizHistory.length ; j++ ){
       if (quizHistory[j].class === course && quizHistory[j].quiz === quiz){
-        console.log('current quiz: ', course, quizHistory[j].quiz);
         if(quizHistory[j].score < totalScore){
           quizHistory[j].score = totalScore;
           quizHistory[j].percentCorrect = `${Math.round(totalScore/(quizHistory[j].numQuestions) *100)}%`
@@ -160,7 +189,6 @@ function handleSubmit(event) {
         quizHistory[j].dateTaken = Date.now();
       }
     }
-
     var dataString = JSON.stringify(quizHistory);
     localStorage.setItem(`${name}`, dataString);
 
@@ -199,13 +227,11 @@ function handleSubmit(event) {
 
 function showQuestions(event) {
   var getAllQuizzes = document.getElementsByClassName('question');
-  console.log(getAllQuizzes);
   for(var i = 0 ; i < getAllQuizzes.length ; i++) {
     getAllQuizzes[i].style.display = 'block';
   }
 }
 function checkAnswer(questionResponse, element) {
-  // console.log('checking the answer')
   var currentCorrectAnswer = selectedQuiz[quizQuestionOrder[currentQuestion]].correctAnswers;
   var possibleCorrect = currentCorrectAnswer.length;
   var count = 0;
@@ -234,7 +260,6 @@ function checkAnswer(questionResponse, element) {
     var pTag = document.createElement('p')
     pTag.setAttribute('id','partial');
     pTag.textContent = `${count} Correct out of ${possibleCorrect} Possible Answers`;
-    // pTag.textContent = 'almost!'
   }
   element.appendChild(pTag);
 
@@ -252,22 +277,18 @@ function checkAnswer(questionResponse, element) {
 
 function handleUserInput(event) {
   event.preventDefault();
-  // console.log('quiz requested')
   var data = event.target;
   name = titleCase((data.name.value).toLowerCase());
 
   //if the user has taken the quiz before get the historical data from local storage
   if(localStorage.getItem(name)){
     quizHistory = JSON.parse(localStorage.getItem(name));
-    console.log(quizHistory);
   }
   course = data.course.value;
   var selectedIndex =data.quiz.options.selectedIndex
   quiz = data.quiz.options[selectedIndex].id;
-
   selectedQuiz = quizData[course][quiz];
   quizQuestionOrder = questionOrder(selectedQuiz);
-  console.log(quiz);
   populateQuizQuestion(selectedQuiz);
   userInput.style.display = 'none';
 }
@@ -284,7 +305,6 @@ function titleCase(name) {
 
 
 function populateCourseList (data) {
-  // console.log('course list populated')
   quizSelect.style.display = 'none';
   var allCourses = Object.keys(data);
   var optionEl = document.createElement('option');
@@ -314,8 +334,14 @@ function populateQuizList (event) {
       var allQuizzes = Object.keys(quizData[course]);
       allQuizzes.forEach(quiz => {
         optionEl = document.createElement('option');
-        optionEl.textContent = `Quiz #${allQuizzes.indexOf(quiz) + 1}`
-        optionEl.setAttribute('id', `quiz-${allQuizzes.indexOf(quiz)+1}`)
+        if(quiz.length > 6){
+          optionEl.textContent = quiz.replace(/-/g,' ');
+          optionEl.setAttribute('id', quiz);
+
+        } else {
+          optionEl.textContent = `Quiz #${allQuizzes.indexOf(quiz) + 1}`
+          optionEl.setAttribute('id', `quiz-${allQuizzes.indexOf(quiz)+1}`);
+        }
         quizSelect.appendChild(optionEl);
       })
     }
