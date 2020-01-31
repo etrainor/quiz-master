@@ -600,77 +600,77 @@ var quizData = {
     ],
     "quiz-5":[
       //TODO: additional functionality needed to handle matching question.
-      // {
-      //   "question":"Match the \"CRUD\" operation with the corresponding HTTP verb.",
-      //   "matchOptions":[["Create","Delete","Read","Update"],["Create","Read","Update","Delete"],["Create","Read","Update","Delete"],["Create","Read","Update","Delete"]],
-      //   "possibleAnswers":["POST","GET","PUT","DELETE"],
-      //   "correctAnswers":["Create","Read","Update","Delete"]
+      {
+        "question":"Match the \"CRUD\" operation with the corresponding HTTP verb.",
+        "matchOptions":[["Create","Delete","Read","Update"],["Create","Read","Update","Delete"],["Create","Read","Update","Delete"],["Create","Read","Update","Delete"]],
+        "possibleAnswers":["POST","GET","PUT","DELETE"],
+        "correctAnswers":["Create","Read","Update","Delete"]
       // },
-      {
-        "question":"With the following code, How would you retrieve the corresponding value of 'id' ?",
-        "codeSnippet":["app.get('/api/v1/books/:id', (req, res) ={...}"],
-        "possibleAnswers":["req.params.book_id","req.get('id')","req.id","req.params.id"],
-        "correctAnswers":["3"]
-      },
-      {
-        "question":"The express method that enables the server to accept communication on a given port is...",
-        "possibleAnswers":["listen","serve","init","goLive"],
-        "correctAnswers":["0"]
-      },
-      {
-        "question":"In order to apply CSS styling only when screen width >= 1000px",
-        "possibleAnswers":["@media (max-width: 1000px)","@media (min-width: 1000px)","@width(1000px)","@min-width(1000px)"],
-        "correctAnswers":["1"]
-      },
-      {
-        "question":"Representational State Transfer (or REST) can be best defined as...",
-        "possibleAnswers":["The convention where every resource is uniquely addressable using a uniform and minimal set of commands (typically using HTTP commands of GET, POST, PUT, or DELETE over the Internet)","Securely transmitting HTTP requests.","A protocol for transferring files.","A method for linking between documents on web."],
-        "correctAnswers":["0"]
-      },
-      {
-        "question":"What is the value of objectAsString?",
-        "codeSnippet":["const obj = {",
-        "  myMethod: function() {}","}","","const objectAsString = JSON.stringify(obj);"],
-        "possibleAnswers":["nothing, an error is thrown","'null'","'{myMethod:\"\"}'","'{}'"],
-        "correctAnswers":["3"]
-      },
-      {
-        "question":"What SQL keyword should be used instead of [REPLACE_ME] ?",
-        "codeSnippet":["SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate",
-        "FROM Orders",
-        "INNER JOIN Customers [REPLACE_ME] Orders.CustomerID=Customers.CustomerID;"],
-        "possibleAnswers":["BY","ON","AS","MERGE"],
-        "correctAnswers":["1"]
-      },
-      {
-        "question":"In Express.js functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle are known as...",
-        "possibleAnswers":["middleware","malware","betweenware","higher order functions"],
-        "correctAnswers":["0"]
-      },
-      {
-        "question":"In a restful api how is it possible for the following end point to retrieve a list of books as well as add a book?",
-        "codeSnippet":["/api/books"],
-        "possibleAnswers":["It is not possible using the same end point.","by using https vs http","By using different HTTP verbs, in this case GET and POST.","by calling /api/books with different body argument."],
-        "correctAnswers":["2"]
-      },
-      {
-        "question":"What is the class of HTTP error codes that indicate a case where client seems to have erred?",
-        "possibleAnswers":["3xx","4xx","2xx","5xx"],
-        "correctAnswers":["1"]
-      },
-      {
-        "question":"Consider the following code... When the intro function is called for the ‘animal’ object, what is logged to the console? ",
-        "codeSnippet":["function Animal(breed) {",
-        "  this.breed = breed;",
-        "};",
-        "",
-        "Animal.prototype.intro = () => {",
-        "  console.log(`Hi, I'm a ${this.breed}`);",
-        "};",
-        "",
-        "let animal = new Animal(‘cow’);"],
-        "possibleAnswers":["This code will produce an error","Hi, I'm a cow","Hi, I'm a undefined","Hi, I'm a"],
-        "correctAnswers":["2"]
+      // {
+      //   "question":"With the following code, How would you retrieve the corresponding value of 'id' ?",
+      //   "codeSnippet":["app.get('/api/v1/books/:id', (req, res) ={...}"],
+      //   "possibleAnswers":["req.params.book_id","req.get('id')","req.id","req.params.id"],
+      //   "correctAnswers":["3"]
+      // },
+      // {
+      //   "question":"The express method that enables the server to accept communication on a given port is...",
+      //   "possibleAnswers":["listen","serve","init","goLive"],
+      //   "correctAnswers":["0"]
+      // },
+      // {
+      //   "question":"In order to apply CSS styling only when screen width >= 1000px",
+      //   "possibleAnswers":["@media (max-width: 1000px)","@media (min-width: 1000px)","@width(1000px)","@min-width(1000px)"],
+      //   "correctAnswers":["1"]
+      // },
+      // {
+      //   "question":"Representational State Transfer (or REST) can be best defined as...",
+      //   "possibleAnswers":["The convention where every resource is uniquely addressable using a uniform and minimal set of commands (typically using HTTP commands of GET, POST, PUT, or DELETE over the Internet)","Securely transmitting HTTP requests.","A protocol for transferring files.","A method for linking between documents on web."],
+      //   "correctAnswers":["0"]
+      // },
+      // {
+      //   "question":"What is the value of objectAsString?",
+      //   "codeSnippet":["const obj = {",
+      //   "  myMethod: function() {}","}","","const objectAsString = JSON.stringify(obj);"],
+      //   "possibleAnswers":["nothing, an error is thrown","'null'","'{myMethod:\"\"}'","'{}'"],
+      //   "correctAnswers":["3"]
+      // },
+      // {
+      //   "question":"What SQL keyword should be used instead of [REPLACE_ME] ?",
+      //   "codeSnippet":["SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate",
+      //   "FROM Orders",
+      //   "INNER JOIN Customers [REPLACE_ME] Orders.CustomerID=Customers.CustomerID;"],
+      //   "possibleAnswers":["BY","ON","AS","MERGE"],
+      //   "correctAnswers":["1"]
+      // },
+      // {
+      //   "question":"In Express.js functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle are known as...",
+      //   "possibleAnswers":["middleware","malware","betweenware","higher order functions"],
+      //   "correctAnswers":["0"]
+      // },
+      // {
+      //   "question":"In a restful api how is it possible for the following end point to retrieve a list of books as well as add a book?",
+      //   "codeSnippet":["/api/books"],
+      //   "possibleAnswers":["It is not possible using the same end point.","by using https vs http","By using different HTTP verbs, in this case GET and POST.","by calling /api/books with different body argument."],
+      //   "correctAnswers":["2"]
+      // },
+      // {
+      //   "question":"What is the class of HTTP error codes that indicate a case where client seems to have erred?",
+      //   "possibleAnswers":["3xx","4xx","2xx","5xx"],
+      //   "correctAnswers":["1"]
+      // },
+      // {
+      //   "question":"Consider the following code... When the intro function is called for the ‘animal’ object, what is logged to the console? ",
+      //   "codeSnippet":["function Animal(breed) {",
+      //   "  this.breed = breed;",
+      //   "};",
+      //   "",
+      //   "Animal.prototype.intro = () => {",
+      //   "  console.log(`Hi, I'm a ${this.breed}`);",
+      //   "};",
+      //   "",
+      //   "let animal = new Animal(‘cow’);"],
+      //   "possibleAnswers":["This code will produce an error","Hi, I'm a cow","Hi, I'm a undefined","Hi, I'm a"],
+      //   "correctAnswers":["2"]
       }
     ],
     "quiz-6":[
