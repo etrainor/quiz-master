@@ -37,8 +37,10 @@ function Quiz (course, quiz, questionArray) {
 function formatData(data) {
   var allCourses = Object.keys(data);
   allCourses.forEach(course => {
+    console.log(course);
     var allQuizzes = Object.keys(data[course]);
     allQuizzes.forEach(quiz => {
+      console.log(quiz);
       var quizArray = data[course][quiz];
       if(course === '201'){
         for(var i = 0 ; i < quizArray.length ; i++){
@@ -54,13 +56,15 @@ function formatData(data) {
           quizData['Quiz-Master']['301-Quiz-Master'] = all301QuizQuestions;
         }
       }
-      quizData['Quiz-Master']['All-Time-Quiz-Master'] = allQuizQuestions;
       new Quiz(course, quiz, quizArray);
     })
   })
+
+  quizData['Quiz-Master']['Epic-Quiz-Master'] = allQuizQuestions;
+
   new Quiz('Quiz-Master', '201-Quiz-Master', all201QuizQuestions);
   new Quiz('Quiz-Master','301-Quiz-Master', all301QuizQuestions);
-  new Quiz('Quiz-Master', 'All-Time-Quiz-Master', allQuizQuestions);
+  new Quiz('Quiz-Master', 'Epic-Quiz-Master', allQuizQuestions);
 }
 
 // function quizMaster(){
@@ -89,10 +93,32 @@ function populateQuizQuestion(quiz) {
   quizBox.appendChild(formEl);
   var visibleQuestion = quiz[quizQuestionOrder[currentQuestion]];
   
-  
-  var question = document.createElement('h2');
-  question.textContent = visibleQuestion.question;
-  formEl.appendChild(question);
+  if(typeof visibleQuestion.question === 'object'){
+    
+    var question = document.createElement('h2');
+    question.textContent = visibleQuestion.question[0];
+    formEl.appendChild(question);
+
+    var alphaChoiceContainer = document.createElement('section');
+
+    for(var i = 1 ; i < visibleQuestion.question.length ; i++){
+      
+      var question = document.createElement('h2');
+      alphaChoiceContainer.appendChild(question);
+      if(visibleQuestion.question[i].includes('</pre>')){
+        question.outerHTML = visibleQuestion.question[i];
+      } else {
+        question.setAttribute('class','alpha-choice');
+        question.textContent = visibleQuestion.question[i];
+      }
+    }
+    formEl.appendChild(alphaChoiceContainer);
+
+  } else {
+    var question = document.createElement('h2');
+    question.textContent = visibleQuestion.question;
+    formEl.appendChild(question);
+  }
 
   //if question has a code snippet
   if(visibleQuestion.codeSnippet){
@@ -137,8 +163,15 @@ function populateQuizQuestion(quiz) {
       singleAnswer.appendChild(inputEl);
     }
     var label = document.createElement('label');
-    label.textContent = visibleQuestion.possibleAnswers[j];
-    singleAnswer.appendChild(label);
+
+    //check if the possible answer should be rendered as a code block
+    if(visibleQuestion.possibleAnswers[j].includes('<pre>')){
+      singleAnswer.appendChild(label);
+      label.outerHTML= visibleQuestion.possibleAnswers[j];
+    } else {
+      label.textContent = visibleQuestion.possibleAnswers[j];
+      singleAnswer.appendChild(label);
+    }
     answerContainer.appendChild(singleAnswer);
   }
 
@@ -333,6 +366,7 @@ function populateQuizList (event) {
       quizSelect.style.display = 'inline-block';
       var allQuizzes = Object.keys(quizData[course]);
       allQuizzes.forEach(quiz => {
+        console.log(quiz)
         optionEl = document.createElement('option');
         if(quiz.length > 6){
           optionEl.textContent = quiz.replace(/-/g,' ');

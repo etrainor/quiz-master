@@ -2,6 +2,7 @@
 
 var tableContainer = document.getElementById('table-section');
 var categories = [];
+var quizData;
 
 function getMonth(date) {
   var months = ['January', 'February', 'March','April','May','June','July','August','September','October','November','December'];
@@ -26,7 +27,7 @@ function getLocalStorage() {
   //get data to render out of local storage
   //TODO: Handle Null
   var currentQuizTaker = localStorage.getItem('currentQuizTaker');
-  var quizData = JSON.parse(localStorage.getItem(currentQuizTaker));
+  quizData = JSON.parse(localStorage.getItem(currentQuizTaker));
 }  
 
 function renderResultsTables() {  

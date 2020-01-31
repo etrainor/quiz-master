@@ -118,10 +118,15 @@ h2 {
 
 .single-answer {
   padding: 1rem;
+  display: flex;
+  flex-direction:row;
+  align-content: center;
 }
 
 .single-answer > input {
   margin-right: 2rem;
+  display: flex;
+  align-self: center;
 }
 
 #quiz > form > button, #results > #button-container > button {
@@ -260,4 +265,21 @@ td {
 #question-number {
   text-align: end;
   padding-top: 1.5rem;
+}
+
+.code-answer {
+  width: 80%;
+}
+
+.code-answer > pre {
+  margin: 0;
+  width: 100%;
+  background-color: rgb(238,171,7, .8);
+  color: black;
+}
+
+.question-code {
+  padding: 1rem 3rem;
+  background-color: rgb(177,44,85, .8);
+  margin-bottom: 1rem;
 }
